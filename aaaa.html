@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ana Laura Geleilate - Portfólio de TI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Chosen Palette: Warm neutrals (slate-50 to slate-800) with a professional tech-blue accent (sky-700) for a calm, trustworthy, and modern feel. -->
+    <!-- Application Structure Plan: A single-page interactive digital portfolio. It uses a fixed top navigation for easy access. The structure is divided into: 'Apresentação' (Hero/About), 'Mapa de Competências' (Interactive visualization of skills), 'Jornada Profissional' (Interactive timeline of experiences), and 'Qualificações' (Education & Certifications). This dashboard-like approach was chosen to allow recruiters to quickly scan her profile, visualize her balanced skill set, and dive deep into her high-impact experiences interactively, moving away from a static document reading experience. -->
+    <!-- Visualization & Content Choices: Report Info: Skills -> Goal: Compare -> Viz/Presentation Method: Radar Chart -> Interaction: Hover for exact domains -> Justification: Shows the balanced nature of an IT Analyst across Cloud, Network, Security, and Management -> Library/Method: Chart.js (Canvas). Report Info: Experiences -> Goal: Organize/Explore -> Viz: Interactive Cards -> Interaction: Click to expand details/achievements -> Justification: Keeps the UI clean while allowing deep-dives into her specific tasks and awards. Confirming NO SVG/Mermaid used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        html { scroll-behavior: smooth; }
+        body { background-color: #f8fafc; color: #0f172a; overflow-x: hidden; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 450px;
+        }
+        @media (min-width: 768px) {
+            .chart-container { height: 400px; }
+        }
+        .interactive-card { transition: transform 0.2s ease, box-shadow 0.2s ease; cursor: pointer; }
+        .interactive-card:hover { transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="fixed w-full bg-white shadow-sm z-50 top-0">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="font-bold text-xl text-sky-800">&#x1F4BB; ALVG</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#sobre" class="text-slate-600 hover:text-sky-700 font-medium transition-colors">Sobre</a>
+                    <a href="#competencias" class="text-slate-600 hover:text-sky-700 font-medium transition-colors">Competências</a>
+                    <a href="#experiencia" class="text-slate-600 hover:text-sky-700 font-medium transition-colors">Experiência</a>
+                    <a href="#qualificacoes" class="text-slate-600 hover:text-sky-700 font-medium transition-colors">Qualificações</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-20">
+        
+        <section id="sobre" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+            <div class="text-center md:text-left md:flex md:items-center md:justify-between">
+                <div class="md:w-2/3">
+                    <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-2">Ana Laura Viana Geleilate</h1>
+                    <h2 class="text-2xl sm:text-3xl font-semibold text-sky-700 mb-6">Analista de TI | Infraestrutura & Cloud | Engenheira de Computação</h2>
+                    
+                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
+                        Engenheira de Computação graduada pela UNIFOR, com sólida base técnica em infraestrutura de TI, administração de redes e suporte especializado. Especialista em unir o raciocínio lógico da engenharia à gestão de ambientes críticos, com foco em alta disponibilidade e segurança.
+                    </p>
+                    
+                    <div class="flex flex-wrap justify-center md:justify-start gap-4 mb-8">
+                        <span class="inline-flex items-center px-4 py-2 rounded-full bg-slate-100 text-slate-700 font-medium shadow-sm">&#x1F4CD; Fortaleza, CE</span>
+                        <span class="inline-flex items-center px-4 py-2 rounded-full bg-slate-100 text-slate-700 font-medium shadow-sm">&#x1F4DE; (85) 99182-6367</span>
+                        <a href="mailto:laura.geleilate@hotmail.com" class="inline-flex items-center px-4 py-2 rounded-full bg-slate-100 text-sky-700 hover:bg-sky-50 font-medium shadow-sm transition-colors">&#x2709; E-mail</a>
+                        <a href="https://www.linkedin.com/in/laurageleilate" target="_blank" class="inline-flex items-center px-4 py-2 rounded-full bg-sky-700 text-white hover:bg-sky-800 font-medium shadow-sm transition-colors">&#x1F517; LinkedIn</a>
+                    </div>
+                </div>
+                
+                <div class="mt-10 md:mt-0 md:w-1/3 flex justify-center">
+                    <div class="w-48 h-48 sm:w-64 sm:h-64 rounded-full border-4 border-sky-100 bg-sky-50 flex items-center justify-center shadow-lg">
+                        <span class="text-7xl">&#x1F469;&#x200D;&#x1F4BB;</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="competencias" class="bg-white py-16 border-y border-slate-200">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-10 text-center md:text-left">
+                    <h3 class="text-3xl font-bold text-slate-900 mb-4">Mapa de Competências Técnicas</h3>
+                    <p class="text-slate-600 max-w-3xl">
+                        Esta secção ilustra o equilíbrio das minhas habilidades tecnológicas. Explore o gráfico interativo para visualizar a minha proficiência em diferentes domínios da TI, desde a gestão de Cloud até ao suporte e segurança. Interaja com os pontos do gráfico para revelar tecnologias específicas.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="chart-container">
+                        <canvas id="skillsRadarChart"></canvas>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-100">
+                            <h4 class="font-bold text-sky-800 text-lg mb-2">&#x2601; Cloud & Infraestrutura</h4>
+                            <p class="text-sm text-slate-700 font-medium">Microsoft Azure (VMs, Entra ID/Azure AD), Windows Server, Linux (Ubuntu/Debian), Virtualização.</p>
+                        </div>
+                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-100">
+                            <h4 class="font-bold text-sky-800 text-lg mb-2">&#x1F310; Redes & Conectividade</h4>
+                            <p class="text-sm text-slate-700 font-medium">Protocolos TCP/IP, DNS, DHCP, Roteamento, Configuração de Redes Locais (LAN), Segurança de Redes.</p>
+                        </div>
+                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-100">
+                            <h4 class="font-bold text-sky-800 text-lg mb-2">&#x1F4C8; Monitoramento & Gestão</h4>
+                            <p class="text-sm text-slate-700 font-medium">Zabbix (Dashboards/Alertas), ServiceNow (ITSM/Incident Management), Gestão de Ativos, ITIL v4.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experiencia" class="py-16">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-10 text-center md:text-left">
+                    <h3 class="text-3xl font-bold text-slate-900 mb-4">Jornada Profissional</h3>
+                    <p class="text-slate-600 max-w-3xl">
+                        Nesta secção, detalho as minhas experiências práticas no mercado. Clique nos cartões abaixo para expandir as informações e descobrir as minhas principais responsabilidades, ferramentas utilizadas e projetos de impacto em cada organização.
+                    </p>
+                </div>
+
+                <div class="space-y-6">
+                    
+                    <div class="interactive-card bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden" onclick="toggleCard('exp1')">
+                        <div class="p-6 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition-colors">
+                            <div>
+                                <h4 class="text-xl font-bold text-slate-900">Estagiária de Infraestrutura e Gestão de Dados</h4>
+                                <p class="text-sky-700 font-medium">&#x1F3ED; ArcelorMittal Pecém <span class="text-slate-500 font-normal ml-2">| Julho/2024 – Julho/2025</span></p>
+                            </div>
+                            <span id="icon-exp1" class="text-2xl text-slate-400 font-bold">&#x25BC;</span>
+                        </div>
+                        <div id="exp1" class="p-6 border-t border-slate-100 hidden">
+                            <div class="mb-4 inline-block bg-yellow-100 border border-yellow-300 text-yellow-800 px-4 py-2 rounded-lg text-sm font-bold shadow-sm">
+                                &#x1F3C6; Reconhecimento: Premiada com o selo "Atitude Eficiente" (Agosto/2025)
+                            </div>
+                            <ul class="space-y-3 text-slate-700">
+                                <li><strong>&#x2728; Destaque:</strong> Selecionada para o Programa de Estágio Inclusivo para Mulheres em Engenharia, desenvolvendo um Projeto de Melhoria de alto impacto para a área de TI.</li>
+                                <li><strong>&#x1F6E0; Suporte N1/N2:</strong> Atendimento especializado para resolução de problemas de hardware e conectividade em ambiente industrial de alta criticidade.</li>
+                                <li><strong>&#x1F4CB; Gestão de Incidentes:</strong> Administração de chamados via <strong>ServiceNow</strong>, com foco rigoroso em metas de SLA e documentação técnica detalhada.</li>
+                                <li><strong>&#x1F5A5; Infraestrutura:</strong> Troubleshooting em ambientes <strong>Windows Server e Linux</strong> e gestão do ciclo de vida de ativos de TI.</li>
+                                <li><strong>&#x1F31F; Impacto:</strong> Implantação do projeto de Doação de Materiais de TI e fomento ao Centro de Recondicionamento Eletrônico.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="interactive-card bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden" onclick="toggleCard('exp2')">
+                        <div class="p-6 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition-colors">
+                            <div>
+                                <h4 class="text-xl font-bold text-slate-900">Pesquisadora e Instrutora Técnica (Bolsista)</h4>
+                                <p class="text-sky-700 font-medium">&#x1F3EB; Centro de Recondicionamento Tecnológico (CRT) / UNIFOR <span class="text-slate-500 font-normal ml-2">| Março/2024 – Dezembro/2024</span></p>
+                            </div>
+                            <span id="icon-exp2" class="text-2xl text-slate-400 font-bold">&#x25BC;</span>
+                        </div>
+                        <div id="exp2" class="p-6 border-t border-slate-100 hidden">
+                            <ul class="space-y-3 text-slate-700">
+                                <li><strong>&#x1F427; Infraestrutura Linux:</strong> Instalação, configuração e manutenção de sistemas Linux em hardware recondicionado, atuando em parceria com a CITINOVA.</li>
+                                <li><strong>&#x1F5A7; Redes e Conectividade:</strong> Configuração de redes locais (LAN), protocolos DHCP, DNS e roteamento básico para ambientes laboratoriais.</li>
+                                <li><strong>&#x1F4D6; Capacitação:</strong> Elaboração e ministração de treinamentos técnicos para usuários, focando na autonomia em sistemas abertos e inclusão digital.</li>
+                                <li><strong>&#x2699; Hardware:</strong> Diagnóstico de falhas complexas, montagem e manutenção preventiva de desktops e periféricos.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="qualificacoes" class="bg-white py-16 border-t border-slate-200">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-10 text-center md:text-left">
+                    <h3 class="text-3xl font-bold text-slate-900 mb-4">Qualificações e Formação</h3>
+                    <p class="text-slate-600 max-w-3xl">
+                        A minha base académica em Engenharia aliada a certificações focadas no mercado. Explore os certificados que atestam as minhas competências em redes, segurança e hardware corporativo.
+                    </p>
+                </div>
+
+                <div class="mb-12 bg-sky-50 p-6 rounded-xl border border-sky-100 flex items-center">
+                    <span class="text-4xl mr-4">&#x1F393;</span>
+                    <div>
+                        <h4 class="text-xl font-bold text-slate-900">Bacharelado em Engenharia de Computação</h4>
+                        <p class="text-sky-800 font-medium">Universidade de Fortaleza (UNIFOR) | Concluído em 2025</p>
+                    </div>
+                </div>
+
+                <h4 class="text-2xl font-bold text-slate-800 mb-6">Certificações em Destaque</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 hover:border-sky-300 transition-colors">
+                        <div class="text-2xl mb-2">&#x1F5A7;</div>
+                        <h5 class="font-bold text-slate-900">Networking Basics</h5>
+                        <p class="text-sm text-slate-600">Cisco Networking Academy (Out 2024)</p>
+                    </div>
+
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 hover:border-sky-300 transition-colors">
+                        <div class="text-2xl mb-2">&#x2699;</div>
+                        <h5 class="font-bold text-slate-900">Manutenção e Montagem de PCs</h5>
+                        <p class="text-sm text-slate-600">Programa Juventude Digital (Mai 2024)</p>
+                    </div>
+
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 hover:border-sky-300 transition-colors">
+                        <div class="text-2xl mb-2">&#x1F512;</div>
+                        <h5 class="font-bold text-slate-900">Cybersecurity Fundamentals</h5>
+                        <p class="text-sm text-slate-600">IBM</p>
+                    </div>
+
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 hover:border-sky-300 transition-colors">
+                        <div class="text-2xl mb-2">&#x1F6E1;</div>
+                        <h5 class="font-bold text-slate-900">Cybersecurity Awareness 2024</h5>
+                        <p class="text-sm text-slate-600">ArcelorMittal Group Cybersecurity</p>
+                    </div>
+
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 hover:border-sky-300 transition-colors">
+                        <div class="text-2xl mb-2">&#x1F4E1;</div>
+                        <h5 class="font-bold text-slate-900">Soluções IoT: Do Sensor ao ERP</h5>
+                        <p class="text-sm text-slate-600">III Tech Day UNIFOR (2023)</p>
+                    </div>
+
+                    <div class="bg-slate-800 p-5 rounded-xl border border-slate-700 flex flex-col justify-center">
+                        <div class="text-2xl mb-2 text-white">&#x1F30E;</div>
+                        <h5 class="font-bold text-white">Inglês Fluente</h5>
+                        <p class="text-sm text-slate-300">Capacidade plena para suporte e documentação técnica internacional.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-8 text-center">
+        <p>Ana Laura Viana Geleilate &copy; 2026. Analista de TI e Engenheira de Computação.</p>
+    </footer>
+
+    <script>
+        function toggleCard(id) {
+            const content = document.getElementById(id);
+            const icon = document.getElementById('icon-' + id);
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.innerHTML = '&#x25B2;'; 
+            } else {
+                content.classList.add('hidden');
+                icon.innerHTML = '&#x25BC;';
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const ctx = document.getElementById('skillsRadarChart').getContext('2d');
+            
+            const data = {
+                labels: [
+                    'Cloud (Azure)', 
+                    'Servidores (Win/Linux)', 
+                    'Redes (LAN/TCP/IP)', 
+                    'Monitoramento (Zabbix)', 
+                    'Gestão (ServiceNow/ITIL)',
+                    'Segurança de Endpoints'
+                ],
+                datasets: [{
+                    label: 'Nível de Proficiência',
+                    data: [80, 85, 85, 75, 90, 80],
+                    fill: true,
+                    backgroundColor: 'rgba(3, 105, 161, 0.2)',
+                    borderColor: 'rgba(3, 105, 161, 1)',
+                    pointBackgroundColor: 'rgba(3, 105, 161, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(3, 105, 161, 1)'
+                }]
+            };
+
+            const config = {
+                type: 'radar',
+                data: data,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: {
+                                color: 'rgba(0, 0, 0, 0.1)'
+                            },
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.1)'
+                            },
+                            pointLabels: {
+                                font: {
+                                    size: 12,
+                                    family: "'Segoe UI', sans-serif"
+                                },
+                                color: '#475569'
+                            },
+                            ticks: {
+                                display: false, 
+                                min: 0,
+                                max: 100
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                            titleFont: { size: 14, family: "'Segoe UI', sans-serif" },
+                            bodyFont: { size: 13, family: "'Segoe UI', sans-serif" },
+                            padding: 12,
+                            callbacks: {
+                                label: function(context) {
+                                    const labelsMap = {
+                                        'Cloud (Azure)': 'Gestão VMs, Entra ID / Azure AD',
+                                        'Servidores (Win/Linux)': 'Troubleshooting avançado Ubuntu/Debian/Windows Server',
+                                        'Redes (LAN/TCP/IP)': 'DNS, DHCP, Roteamento, Topologias',
+                                        'Monitoramento (Zabbix)': 'Dashboards, Alertas, Proatividade',
+                                        'Gestão (ServiceNow/ITIL)': 'Gestão de Incidentes, SLAs rigorosos, Ativos',
+                                        'Segurança de Endpoints': 'Awareness, Políticas de Segurança da Informação'
+                                    };
+                                    return ' ' + labelsMap[context.label];
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+
+            new Chart(ctx, config);
+        });
+    </script>
+</body>
