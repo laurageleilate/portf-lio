@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laura Geleilate | Analista de Sistemas & Infraestrutura</title>
+    <title id="page-title">Laura Geleilate | Analista de Sistemas & Infraestrutura</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -26,15 +26,26 @@
     <!-- Navbar -->
     <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <a href="#" class="text-xl font-bold text-slate-900 tracking-tight">
+            <div class="flex justify-between h-16 items-center gap-4">
+                <a href="#" class="text-xl font-bold text-slate-900 tracking-tight flex-shrink-0">
                     Laura <span class="text-blue-600">Geleilate</span>
                 </a>
-                <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
-                    <a href="#sobre" class="hover:text-blue-600 transition">Sobre</a>
-                    <a href="#competencias" class="hover:text-blue-600 transition">Competências</a>
-                    <a href="#experiencia" class="hover:text-blue-600 transition">Experiência</a>
-                    <a href="#qualificacoes" class="hover:text-blue-600 transition">Qualificações</a>
+                
+                <div class="hidden md:flex space-x-6 text-sm font-medium text-slate-600">
+                    <a href="#sobre" class="hover:text-blue-600 transition" data-i18n="nav_about">Sobre</a>
+                    <a href="#competencias" class="hover:text-blue-600 transition" data-i18n="nav_skills">Competências</a>
+                    <a href="#experiencia" class="hover:text-blue-600 transition" data-i18n="nav_exp">Experiência</a>
+                    <a href="#qualificacoes" class="hover:text-blue-600 transition" data-i18n="nav_qual">Qualificações</a>
+                </div>
+
+                <!-- Language Switcher -->
+                <div class="flex items-center bg-slate-100 p-1 rounded-lg border border-slate-200 text-xs font-semibold">
+                    <button id="btn-pt" onclick="setLanguage('pt')" class="px-2.5 py-1 rounded-md bg-white text-blue-600 shadow-sm transition cursor-pointer">
+                        🇧🇷 Português (Brasil)
+                    </button>
+                    <button id="btn-en" onclick="setLanguage('en')" class="px-2.5 py-1 rounded-md text-slate-600 hover:text-slate-900 transition cursor-pointer">
+                        🇺🇸 English
+                    </button>
                 </div>
             </div>
         </div>
@@ -46,24 +57,24 @@
             <div class="flex flex-col md:flex-row items-center gap-10">
                 <div class="flex-shrink-0">
                     <div class="w-40 h-40 md:w-48 md:h-48 rounded-full bg-blue-50 border-4 border-white shadow-lg flex items-center justify-center overflow-hidden">
-                        <span class="text-6xl" role="img" aria-label="Engenheira">👩‍💻</span>
+                        <span class="text-6xl" role="img" aria-label="Engineer">👩‍💻</span>
                     </div>
                 </div>
                 <div class="text-center md:text-left flex-1">
-                    <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800 mb-4">
+                    <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800 mb-4" data-i18n="hero_badge">
                         Disponível para conexões & projetos globais
                     </div>
                     <h1 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-2">
                         Ana Laura Viana Geleilate
                     </h1>
-                    <h2 class="text-lg md:text-xl font-semibold text-blue-600 mb-4">
+                    <h2 class="text-lg md:text-xl font-semibold text-blue-600 mb-4" data-i18n="hero_role">
                         Analista de Sistemas Júnior | Infraestrutura & Cloud (Azure) | Engenheira de Computação
                     </h2>
-                    <p class="text-slate-600 leading-relaxed mb-6 max-w-2xl">
+                    <p class="text-slate-600 leading-relaxed mb-6 max-w-2xl" data-i18n="hero_summary">
                         Engenheira de Computação formada pela UNIFOR, com sólida base técnica em infraestrutura de TI, administração de redes, análise de sistemas e suporte especializado. Especialista em unir o raciocínio lógico da engenharia à gestão de ambientes críticos, com foco em alta disponibilidade, segurança e melhoria contínua.
                     </p>
                     <div class="flex flex-wrap justify-center md:justify-start gap-4 text-sm text-slate-600">
-                        <span class="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-lg border border-slate-200 shadow-sm">
+                        <span class="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-lg border border-slate-200 shadow-sm" data-i18n="hero_location">
                             📍 Fortaleza, CE
                         </span>
                         <a href="mailto:laura.geleilate@hotmail.com" class="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-lg border border-slate-200 shadow-sm hover:border-blue-400 hover:text-blue-600 transition">
@@ -82,8 +93,8 @@
     <section id="competencias" class="py-16 md:py-20">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-12">
-                <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-3">Mapa de Competências Técnicas</h2>
-                <p class="text-slate-600 text-sm md:text-base">
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-3" data-i18n="skills_title">Mapa de Competências Técnicas</h2>
+                <p class="text-slate-600 text-sm md:text-base" data-i18n="skills_desc">
                     Esta seção ilustra o equilíbrio das minhas habilidades tecnológicas. Explore o gráfico interativo para visualizar a minha proficiência em diferentes domínios da TI, desde a gestão de Cloud e M365 até redes, segurança e monitoramento.
                 </p>
             </div>
@@ -99,9 +110,9 @@
                     <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm card-hover">
                         <h3 class="font-semibold text-slate-900 mb-1 flex items-center gap-2">
                             <span class="w-2.5 h-2.5 rounded-full bg-blue-600"></span>
-                            Cloud & Administração Microsoft
+                            <span data-i18n="skill_card1_title">Cloud & Administração Microsoft</span>
                         </h3>
-                        <p class="text-sm text-slate-600">
+                        <p class="text-sm text-slate-600" data-i18n="skill_card1_desc">
                             Microsoft Azure (VMs, Alocação de IPs, Entra ID / Azure AD), Microsoft 365 Admin Center, Windows Server, Linux (Ubuntu/Debian), Virtualização.
                         </p>
                     </div>
@@ -109,9 +120,9 @@
                     <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm card-hover">
                         <h3 class="font-semibold text-slate-900 mb-1 flex items-center gap-2">
                             <span class="w-2.5 h-2.5 rounded-full bg-indigo-600"></span>
-                            Redes, Firewalls & Conectividade
+                            <span data-i18n="skill_card2_title">Redes, Firewalls & Conectividade</span>
                         </h3>
-                        <p class="text-sm text-slate-600">
+                        <p class="text-sm text-slate-600" data-i18n="skill_card2_desc">
                             Protocolos TCP/IP, DNS, DHCP, Roteamento, Configuração de Redes Locais (LAN), Firewalls Corporativos, VPNs e Monitoramento de Links de Internet.
                         </p>
                     </div>
@@ -119,9 +130,9 @@
                     <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm card-hover">
                         <h3 class="font-semibold text-slate-900 mb-1 flex items-center gap-2">
                             <span class="w-2.5 h-2.5 rounded-full bg-emerald-600"></span>
-                            Monitoramento, Fluxos & Governança (ITIL)
+                            <span data-i18n="skill_card3_title">Monitoramento, Fluxos & Governança (ITIL)</span>
                         </h3>
-                        <p class="text-sm text-slate-600">
+                        <p class="text-sm text-slate-600" data-i18n="skill_card3_desc">
                             Jira (Fluxos Técnicos/Chamados), ServiceNow (ITSM/Incident Management), Zabbix (Dashboards/Alertas), Gestão de SLA, ITIL v4 e Suporte N1/N2.
                         </p>
                     </div>
@@ -134,8 +145,8 @@
     <section id="experiencia" class="py-16 md:py-20 bg-white border-y border-slate-200">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-12">
-                <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-3">Jornada Profissional</h2>
-                <p class="text-slate-600 text-sm md:text-base">
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-3" data-i18n="exp_title">Jornada Profissional</h2>
+                <p class="text-slate-600 text-sm md:text-base" data-i18n="exp_desc">
                     Nesta seção, detalho as minhas experiências práticas no mercado. Clique nos cartões abaixo para expandir as informações e descobrir as minhas principais responsabilidades, ferramentas utilizadas e projetos de impacto em cada organização.
                 </p>
             </div>
@@ -143,19 +154,19 @@
             <div class="space-y-4 max-w-3xl mx-auto">
                 <!-- Cargo Atual: Connect 5g -->
                 <div class="border-2 border-blue-500 rounded-xl bg-blue-50/30 overflow-hidden shadow-sm">
-                    <button onclick="toggleExp('exp1')" class="w-full text-left p-6 flex justify-between items-center focus:outline-none">
+                    <button onclick="toggleExp('exp1')" class="w-full text-left p-6 flex justify-between items-center focus:outline-none cursor-pointer">
                         <div>
                             <div class="flex flex-wrap items-center gap-2 mb-1">
-                                <span class="px-2.5 py-0.5 text-xs font-semibold bg-blue-600 text-white rounded-full">Atual</span>
-                                <span class="text-xs font-medium text-slate-500">Julho/2026 – Presente</span>
+                                <span class="px-2.5 py-0.5 text-xs font-semibold bg-blue-600 text-white rounded-full" data-i18n="exp1_badge">Atual</span>
+                                <span class="text-xs font-medium text-slate-500" data-i18n="exp1_date">Julho/2026 – Presente</span>
                             </div>
-                            <h3 class="text-lg font-bold text-slate-900">Analista de Sistemas Júnior</h3>
-                            <p class="text-sm font-medium text-blue-700">Connect 5g (Remoto - Texas, EUA)</p>
+                            <h3 class="text-lg font-bold text-slate-900" data-i18n="exp1_role">Analista de Sistemas Júnior</h3>
+                            <p class="text-sm font-medium text-blue-700" data-i18n="exp1_company">Connect 5g (Remoto - Texas, EUA)</p>
                         </div>
                         <span id="icon-exp1" class="text-blue-600 text-xl font-bold transform transition-transform">−</span>
                     </button>
                     <div id="exp1" class="px-6 pb-6 text-sm text-slate-700 border-t border-blue-100 pt-4">
-                        <ul class="list-disc pl-5 space-y-2">
+                        <ul class="list-disc pl-5 space-y-2" data-i18n="exp1_bullets">
                             <li>Gerenciamento de identidade, autenticação e controles de acesso de usuários via <strong>Microsoft Entra ID</strong> e <strong>Microsoft 365 Admin Center</strong>.</li>
                             <li>Provisionamento, configuração e gerenciamento de máquinas virtuais (VMs) e alocações de endereços IP no <strong>Microsoft Azure</strong>.</li>
                             <li>Administração, acompanhamento e gestão de fluxos de trabalho técnicos, tarefas e chamados de sistema utilizando o <strong>Jira</strong>.</li>
@@ -166,35 +177,35 @@
 
                 <!-- Pague Menos -->
                 <div class="border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm card-hover">
-                    <button onclick="toggleExp('exp2')" class="w-full text-left p-6 flex justify-between items-center focus:outline-none">
+                    <button onclick="toggleExp('exp2')" class="w-full text-left p-6 flex justify-between items-center focus:outline-none cursor-pointer">
                         <div>
-                            <span class="text-xs font-medium text-slate-500 block mb-1">Abril/2026 – Junho/2026</span>
-                            <h3 class="text-lg font-bold text-slate-900">Analista de Monitoramento</h3>
+                            <span class="text-xs font-medium text-slate-500 block mb-1" data-i18n="exp2_date">Abril/2026 – Junho/2026</span>
+                            <h3 class="text-lg font-bold text-slate-900" data-i18n="exp2_role">Analista de Monitoramento</h3>
                             <p class="text-sm font-medium text-slate-600">Pague Menos - FBR Digital</p>
                         </div>
                         <span id="icon-exp2" class="text-slate-400 text-xl font-bold">+</span>
                     </button>
                     <div id="exp2" class="hidden px-6 pb-6 text-sm text-slate-700 border-t border-slate-100 pt-4">
-                        <ul class="list-disc pl-5 space-y-2">
+                        <ul class="list-disc pl-5 space-y-2" data-i18n="exp2_bullets">
                             <li>Monitoramento contínuo de servidores, VPNs e links de internet para garantir alta disponibilidade e continuidade operacional em ambientes críticos.</li>
                             <li>Configuração de <strong>firewalls corporativos</strong> para fortalecer a segurança da rede e proteger dados sensíveis.</li>
-                            <li>Suporte técnico de ponta ponta à infraestrutura de internet corporativa, diagnosticando e resolvendo ativamente problemas de instabilidade de rede.</li>
+                            <li>Suporte técnico de ponta a ponta à infraestrutura de internet corporativa, diagnosticando e resolvendo ativamente problemas de instabilidade de rede.</li>
                         </ul>
                     </div>
                 </div>
 
                 <!-- ArcelorMittal -->
                 <div class="border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm card-hover">
-                    <button onclick="toggleExp('exp3')" class="w-full text-left p-6 flex justify-between items-center focus:outline-none">
+                    <button onclick="toggleExp('exp3')" class="w-full text-left p-6 flex justify-between items-center focus:outline-none cursor-pointer">
                         <div>
-                            <span class="text-xs font-medium text-slate-500 block mb-1">Julho/2024 – Julho/2025</span>
-                            <h3 class="text-lg font-bold text-slate-900">Estagiária de Infraestrutura e Gestão de Dados</h3>
+                            <span class="text-xs font-medium text-slate-500 block mb-1" data-i18n="exp3_date">Julho/2024 – Julho/2025</span>
+                            <h3 class="text-lg font-bold text-slate-900" data-i18n="exp3_role">Estagiária de Infraestrutura e Gestão de Dados</h3>
                             <p class="text-sm font-medium text-slate-600">ArcelorMittal Pecém</p>
                         </div>
                         <span id="icon-exp3" class="text-slate-400 text-xl font-bold">+</span>
                     </button>
                     <div id="exp3" class="hidden px-6 pb-6 text-sm text-slate-700 border-t border-slate-100 pt-4">
-                        <ul class="list-disc pl-5 space-y-2">
+                        <ul class="list-disc pl-5 space-y-2" data-i18n="exp3_bullets">
                             <li>Selecionada para o Programa de Estágio Inclusivo para Mulheres na Engenharia, concebendo e implementando projeto de infraestrutura de alto impacto.</li>
                             <li>Suporte técnico especializado de Nível 1 e Nível 2 para hardware, software e conectividade em ambiente industrial complexo.</li>
                             <li>Gestão de incidentes técnicos e solicitações de serviço via <strong>ServiceNow</strong>, atingindo e superando métricas rigorosas de SLA.</li>
@@ -206,16 +217,16 @@
 
                 <!-- CRT / UNIFOR -->
                 <div class="border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm card-hover">
-                    <button onclick="toggleExp('exp4')" class="w-full text-left p-6 flex justify-between items-center focus:outline-none">
+                    <button onclick="toggleExp('exp4')" class="w-full text-left p-6 flex justify-between items-center focus:outline-none cursor-pointer">
                         <div>
-                            <span class="text-xs font-medium text-slate-500 block mb-1">Março/2024 – Dezembro/2024</span>
-                            <h3 class="text-lg font-bold text-slate-900">Pesquisadora e Instrutora Técnica (Bolsista)</h3>
-                            <p class="text-sm font-medium text-slate-600">Centro de Recondicionamento Tecnológico (CRT) / UNIFOR</p>
+                            <span class="text-xs font-medium text-slate-500 block mb-1" data-i18n="exp4_date">Março/2024 – Dezembro/2024</span>
+                            <h3 class="text-lg font-bold text-slate-900" data-i18n="exp4_role">Pesquisadora e Instrutora Técnica (Bolsista)</h3>
+                            <p class="text-sm font-medium text-slate-600" data-i18n="exp4_company">Centro de Recondicionamento Tecnológico (CRT) / UNIFOR</p>
                         </div>
                         <span id="icon-exp4" class="text-slate-400 text-xl font-bold">+</span>
                     </button>
                     <div id="exp4" class="hidden px-6 pb-6 text-sm text-slate-700 border-t border-slate-100 pt-4">
-                        <ul class="list-disc pl-5 space-y-2">
+                        <ul class="list-disc pl-5 space-y-2" data-i18n="exp4_bullets">
                             <li>Instalação, configuração e manutenção de sistemas operacionais Linux em hardware recondicionado.</li>
                             <li>Configuração de redes locais (LAN), protocolos DHCP, DNS e rotas básicas de roteamento para conectividade fluida.</li>
                             <li>Diagnóstico de falhas complexas de hardware e software, executando montagem, reparo e manutenção completa de desktops e periféricos.</li>
@@ -231,8 +242,8 @@
     <section id="qualificacoes" class="py-16 md:py-20">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-12">
-                <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-3">Qualificações e Formação</h2>
-                <p class="text-slate-600 text-sm md:text-base">
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-3" data-i18n="qual_title">Qualificações e Formação</h2>
+                <p class="text-slate-600 text-sm md:text-base" data-i18n="qual_desc">
                     A minha base acadêmica em Engenharia aliada a certificações focadas no mercado. Explore os certificados que atestam as minhas competências em redes, segurança e hardware corporativo.
                 </p>
             </div>
@@ -240,40 +251,40 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
                 <!-- Formação -->
                 <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-                    <span class="text-xs font-semibold uppercase tracking-wider text-blue-600">Formação Acadêmica</span>
-                    <h3 class="text-xl font-bold text-slate-900 mt-1">Bacharelado em Engenharia de Computação</h3>
-                    <p class="text-slate-600 text-sm mt-1">Universidade de Fortaleza (UNIFOR) | Concluído em 2025</p>
+                    <span class="text-xs font-semibold uppercase tracking-wider text-blue-600" data-i18n="edu_label">Formação Acadêmica</span>
+                    <h3 class="text-xl font-bold text-slate-900 mt-1" data-i18n="edu_degree">Bacharelado em Engenharia de Computação</h3>
+                    <p class="text-slate-600 text-sm mt-1" data-i18n="edu_school">Universidade de Fortaleza (UNIFOR) | Concluído em 2025</p>
                 </div>
 
                 <!-- Idiomas -->
                 <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-                    <span class="text-xs font-semibold uppercase tracking-wider text-blue-600">Idiomas</span>
-                    <h3 class="text-xl font-bold text-slate-900 mt-1">Inglês Fluente</h3>
-                    <p class="text-slate-600 text-sm mt-1">Proficiência profissional completa para suporte, operações remotas e documentação técnica internacional.</p>
+                    <span class="text-xs font-semibold uppercase tracking-wider text-blue-600" data-i18n="lang_label">Idiomas</span>
+                    <h3 class="text-xl font-bold text-slate-900 mt-1" data-i18n="lang_title">Inglês Fluente</h3>
+                    <p class="text-slate-600 text-sm mt-1" data-i18n="lang_desc">Proficiência profissional completa para suporte, operações remotas e documentação técnica internacional.</p>
                 </div>
             </div>
 
             <!-- Certificações -->
-            <h3 class="text-lg font-bold text-slate-900 mb-4">Certificações em Destaque</h3>
+            <h3 class="text-lg font-bold text-slate-900 mb-4" data-i18n="cert_title">Certificações em Destaque</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
                     <h4 class="font-semibold text-slate-900 text-sm">Networking Basics</h4>
-                    <p class="text-xs text-slate-500 mt-1">Cisco Networking Academy (Out 2024)</p>
+                    <p class="text-xs text-slate-500 mt-1" data-i18n="cert1_org">Cisco Networking Academy (Out 2024)</p>
                 </div>
                 <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
                     <h4 class="font-semibold text-slate-900 text-sm">Cybersecurity Fundamentals</h4>
                     <p class="text-xs text-slate-500 mt-1">IBM</p>
                 </div>
                 <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
-                    <h4 class="font-semibold text-slate-900 text-sm">Manutenção e Montagem de PCs</h4>
-                    <p class="text-xs text-slate-500 mt-1">Programa Juventude Digital (Mai 2024)</p>
+                    <h4 class="font-semibold text-slate-900 text-sm" data-i18n="cert3_name">Manutenção e Montagem de PCs</h4>
+                    <p class="text-xs text-slate-500 mt-1" data-i18n="cert3_org">Programa Juventude Digital (Mai 2024)</p>
                 </div>
                 <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
                     <h4 class="font-semibold text-slate-900 text-sm">Cybersecurity Awareness 2024</h4>
                     <p class="text-xs text-slate-500 mt-1">ArcelorMittal Group Cybersecurity</p>
                 </div>
                 <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
-                    <h4 class="font-semibold text-slate-900 text-sm">Soluções IoT: Do Sensor ao ERP</h4>
+                    <h4 class="font-semibold text-slate-900 text-sm" data-i18n="cert5_name">Soluções IoT: Do Sensor ao ERP</h4>
                     <p class="text-xs text-slate-500 mt-1">III Tech Day UNIFOR (2023)</p>
                 </div>
             </div>
@@ -283,7 +294,7 @@
     <!-- Footer -->
     <footer class="bg-slate-900 text-slate-400 py-8 text-center text-sm">
         <div class="max-w-5xl mx-auto px-4">
-            <p>© Ana Laura Viana Geleilate 2026. Analista de Sistemas & Engenheira de Computação.</p>
+            <p data-i18n="footer_text">© Ana Laura Viana Geleilate 2026. Analista de Sistemas & Engenheira de Computação.</p>
         </div>
     </footer>
 
@@ -301,12 +312,78 @@
             }
         }
 
-        // Gráfico de Competências
-        const ctx = document.getElementById('skillsChart').getContext('2d');
-        new Chart(ctx, {
-            type: 'radar',
-            data: {
-                labels: [
+        // Dicionário de Traduções PT-BR / EN
+        const translations = {
+            pt: {
+                page_title: "Laura Geleilate | Analista de Sistemas & Infraestrutura",
+                nav_about: "Sobre",
+                nav_skills: "Competências",
+                nav_exp: "Experiência",
+                nav_qual: "Qualificações",
+                hero_badge: "Disponível para conexões & projetos globais",
+                hero_role: "Analista de Sistemas Júnior | Infraestrutura & Cloud (Azure) | Engenheira de Computação",
+                hero_summary: "Engenheira de Computação formada pela UNIFOR, com sólida base técnica em infraestrutura de TI, administração de redes, análise de sistemas e suporte especializado. Especialista em unir o raciocínio lógico da engenharia à gestão de ambientes críticos, com foco em alta disponibilidade, segurança e melhoria contínua.",
+                hero_location: "📍 Fortaleza, CE",
+                skills_title: "Mapa de Competências Técnicas",
+                skills_desc: "Esta seção ilustra o equilíbrio das minhas habilidades tecnológicas. Explore o gráfico interativo para visualizar a minha proficiência em diferentes domínios da TI, desde a gestão de Cloud e M365 até redes, segurança e monitoramento.",
+                skill_card1_title: "Cloud & Administração Microsoft",
+                skill_card1_desc: "Microsoft Azure (VMs, Alocação de IPs, Entra ID / Azure AD), Microsoft 365 Admin Center, Windows Server, Linux (Ubuntu/Debian), Virtualização.",
+                skill_card2_title: "Redes, Firewalls & Conectividade",
+                skill_card2_desc: "Protocolos TCP/IP, DNS, DHCP, Roteamento, Configuração de Redes Locais (LAN), Firewalls Corporativos, VPNs e Monitoramento de Links de Internet.",
+                skill_card3_title: "Monitoramento, Fluxos & Governança (ITIL)",
+                skill_card3_desc: "Jira (Fluxos Técnicos/Chamados), ServiceNow (ITSM/Incident Management), Zabbix (Dashboards/Alertas), Gestão de SLA, ITIL v4 e Suporte N1/N2.",
+                exp_title: "Jornada Profissional",
+                exp_desc: "Nesta seção, detalho as minhas experiências práticas no mercado. Clique nos cartões abaixo para expandir as informações e descobrir as minhas principais responsabilidades, ferramentas utilizadas e projetos de impacto em cada organização.",
+                exp1_badge: "Atual",
+                exp1_date: "Julho/2026 – Presente",
+                exp1_role: "Analista de Sistemas Júnior",
+                exp1_company: "Connect 5g (Remoto - Texas, EUA)",
+                exp1_bullets: `
+                    <li>Gerenciamento de identidade, autenticação e controles de acesso de usuários via <strong>Microsoft Entra ID</strong> e <strong>Microsoft 365 Admin Center</strong>.</li>
+                    <li>Provisionamento, configuração e gerenciamento de máquinas virtuais (VMs) e alocações de endereços IP no <strong>Microsoft Azure</strong>.</li>
+                    <li>Administração, acompanhamento e gestão de fluxos de trabalho técnicos, tarefas e chamados de sistema utilizando o <strong>Jira</strong>.</li>
+                    <li>Supervisão completa do ambiente Microsoft 365 para dar suporte às operações contínuas de infraestrutura em nuvem e atendimento ao usuário final.</li>
+                `,
+                exp2_date: "Abril/2026 – Junho/2026",
+                exp2_role: "Analista de Monitoramento",
+                exp2_bullets: `
+                    <li>Monitoramento contínuo de servidores, VPNs e links de internet para garantir alta disponibilidade e continuidade operacional em ambientes críticos.</li>
+                    <li>Configuração de <strong>firewalls corporativos</strong> para fortalecer a segurança da rede e proteger dados sensíveis.</li>
+                    <li>Suporte técnico de ponta a ponta à infraestrutura de internet corporativa, diagnosticando e resolvendo ativamente problemas de instabilidade de rede.</li>
+                `,
+                exp3_date: "Julho/2024 – Julho/2025",
+                exp3_role: "Estagiária de Infraestrutura e Gestão de Dados",
+                exp3_bullets: `
+                    <li>Selecionada para o Programa de Estágio Inclusivo para Mulheres na Engenharia, concebendo e implementando projeto de infraestrutura de alto impacto.</li>
+                    <li>Suporte técnico especializado de Nível 1 e Nível 2 para hardware, software e conectividade em ambiente industrial complexo.</li>
+                    <li>Gestão de incidentes técnicos e solicitações de serviço via <strong>ServiceNow</strong>, atingindo e superando métricas rigorosas de SLA.</li>
+                    <li>Apoio na instalação, configuração e administração de ambientes Windows Server e Linux, além da gestão proativa de ativos de TI.</li>
+                    <li class="text-blue-800 bg-blue-50 p-2.5 rounded-lg"><strong>Conquista:</strong> Premiada com a Medalha <em>"Atitude Eficiente" (2025)</em> por liderar a primeira iniciativa de recondicionamento eletrônico da usina siderúrgica, promovendo sustentabilidade e inclusão digital na comunidade de Pecém.</li>
+                `,
+                exp4_date: "Março/2024 – Dezembro/2024",
+                exp4_role: "Pesquisadora e Instrutora Técnica (Bolsista)",
+                exp4_company: "Centro de Recondicionamento Tecnológico (CRT) / UNIFOR",
+                exp4_bullets: `
+                    <li>Instalação, configuração e manutenção de sistemas operacionais Linux em hardware recondicionado.</li>
+                    <li>Configuração de redes locais (LAN), protocolos DHCP, DNS e rotas básicas de roteamento para conectividade fluida.</li>
+                    <li>Diagnóstico de falhas complexas de hardware e software, executando montagem, reparo e manutenção completa de desktops e periféricos.</li>
+                    <li>Desenvolvimento de currículo e instrução técnica em TI para capacitação comunitária em sistemas de código aberto.</li>
+                `,
+                qual_title: "Qualificações e Formação",
+                qual_desc: "A minha base acadêmica em Engenharia aliada a certificações focadas no mercado. Explore os certificados que atestam as minhas competências em redes, segurança e hardware corporativo.",
+                edu_label: "Formação Acadêmica",
+                edu_degree: "Bacharelado em Engenharia de Computação",
+                edu_school: "Universidade de Fortaleza (UNIFOR) | Concluído em 2025",
+                lang_label: "Idiomas",
+                lang_title: "Inglês Fluente",
+                lang_desc: "Proficiência profissional completa para suporte, operações remotas e documentação técnica internacional.",
+                cert_title: "Certificações em Destaque",
+                cert1_org: "Cisco Networking Academy (Out 2024)",
+                cert3_name: "Manutenção e Montagem de PCs",
+                cert3_org: "Programa Juventude Digital (Mai 2024)",
+                cert5_name: "Soluções IoT: Do Sensor ao ERP",
+                footer_text: "© Ana Laura Viana Geleilate 2026. Analista de Sistemas & Engenheira de Computação.",
+                chart_labels: [
                     'Cloud (Azure / M365)',
                     'Redes & Firewalls',
                     'Servidores (Win/Linux)',
@@ -314,8 +391,97 @@
                     'Gestão (Jira / ITIL)',
                     'Suporte & Hardware'
                 ],
+                chart_dataset: "Nível de Proficiência"
+            },
+            en: {
+                page_title: "Laura Geleilate | Junior Systems Analyst & Infrastructure",
+                nav_about: "About",
+                nav_skills: "Skills",
+                nav_exp: "Experience",
+                nav_qual: "Qualifications",
+                hero_badge: "Open to global connections & projects",
+                hero_role: "Junior Systems Analyst | Infrastructure & Cloud (Azure) | Computer Engineer",
+                hero_summary: "Computer Engineer graduated from UNIFOR with a solid technical foundation in IT infrastructure, network administration, systems analysis, and specialized support. Skilled at combining engineering logic with critical environment management, focusing on high availability, security, and continuous improvement.",
+                hero_location: "📍 Fortaleza, CE - Brazil",
+                skills_title: "Technical Skills Map",
+                skills_desc: "This section illustrates the balance of my technological capabilities. Explore the interactive chart to visualize my proficiency across different IT domains, from Cloud and M365 administration to networking, security, and monitoring.",
+                skill_card1_title: "Cloud & Microsoft Administration",
+                skill_card1_desc: "Microsoft Azure (VMs, IP Allocation, Entra ID / Azure AD), Microsoft 365 Admin Center, Windows Server, Linux (Ubuntu/Debian), Virtualization.",
+                skill_card2_title: "Networking, Firewalls & Connectivity",
+                skill_card2_desc: "TCP/IP protocols, DNS, DHCP, Routing, Local Area Network (LAN) setup, Corporate Firewalls, VPNs, and Internet Link Monitoring.",
+                skill_card3_title: "Monitoring, Workflows & Governance (ITIL)",
+                skill_card3_desc: "Jira (Technical Workflows/Ticketing), ServiceNow (ITSM/Incident Management), Zabbix (Dashboards/Alerts), SLA Management, ITIL v4, and Tier 1/2 Support.",
+                exp_title: "Professional Journey",
+                exp_desc: "In this section, I detail my hands-on industry experience. Click on the cards below to expand details and discover my key responsibilities, tools used, and high-impact projects at each organization.",
+                exp1_badge: "Current",
+                exp1_date: "July 2026 – Present",
+                exp1_role: "Junior Systems Analyst",
+                exp1_company: "Connect 5g (Remote - Texas, USA)",
+                exp1_bullets: `
+                    <li>Manage user identity, authentication, and access controls via <strong>Microsoft Entra ID</strong> and <strong>Microsoft 365 Admin Center</strong>.</li>
+                    <li>Provision, configure, and manage virtual machines (VMs) and IP address allocations in <strong>Microsoft Azure</strong>.</li>
+                    <li>Administer, track, and manage technical workflows, tasks, and system tickets using <strong>Jira</strong>.</li>
+                    <li>Oversee end-to-end Microsoft 365 administration to support ongoing cloud infrastructure operations and end-user support.</li>
+                `,
+                exp2_date: "April 2026 – June 2026",
+                exp2_role: "Monitoring Analyst",
+                exp2_bullets: `
+                    <li>Monitored servers, VPNs, and internet links to ensure high availability and operational continuity in critical environments.</li>
+                    <li>Configured <strong>corporate firewalls</strong> to strengthen network security and protect sensitive data.</li>
+                    <li>Provided end-to-end support for corporate internet infrastructure, actively diagnosing and resolving network instability issues.</li>
+                `,
+                exp3_date: "July 2024 – July 2025",
+                exp3_role: "Infrastructure and Data Management Intern",
+                exp3_bullets: `
+                    <li>Selected for the Inclusive Internship Program for Women in Engineering, designing and implementing a high-impact infrastructure project.</li>
+                    <li>Delivered specialized Tier 1 and Tier 2 technical support for hardware, software, and connectivity within a complex industrial environment.</li>
+                    <li>Managed technical incidents and service requests using <strong>ServiceNow</strong>, consistently meeting and exceeding strict SLA metrics.</li>
+                    <li>Assisted in installing, configuring, and administering Windows Server and Linux environments alongside proactive IT asset management.</li>
+                    <li class="text-blue-800 bg-blue-50 p-2.5 rounded-lg"><strong>Key Achievement:</strong> Awarded the <em>"Efficient Attitude" Medal (2025)</em> for leading the steel plant's first electronic reconditioning initiative, successfully refurbishing legacy hardware, promoting sustainability, and driving digital inclusion in the local Pecém community.</li>
+                `,
+                exp4_date: "March 2024 – December 2024",
+                exp4_role: "Technical Researcher and Instructor (Scholarship Holder)",
+                exp4_company: "Technological Reconditioning Center (CRT) / UNIFOR",
+                exp4_bullets: `
+                    <li>Performed installation, configuration, and maintenance of Linux operating systems on reconditioned hardware.</li>
+                    <li>Configured local networks (LAN), DHCP, DNS protocols, and basic routing paths to ensure seamless environment connectivity.</li>
+                    <li>Diagnosed complex hardware and software failures, executing full assembly, repair, and maintenance of desktops and peripherals.</li>
+                    <li>Developed curriculum and delivered technical IT training sessions to empower underserved communities with open-source system autonomy.</li>
+                `,
+                qual_title: "Qualifications & Education",
+                qual_desc: "My academic engineering foundation combined with industry-focused certifications. Explore the credentials that validate my expertise in networking, cybersecurity, and enterprise hardware.",
+                edu_label: "Education",
+                edu_degree: "Bachelor's Degree in Computer Engineering",
+                edu_school: "University of Fortaleza (UNIFOR) | Graduated in 2025",
+                lang_label: "Languages",
+                lang_title: "Fluent English",
+                lang_desc: "Full professional proficiency for international technical support, remote global operations, and technical documentation.",
+                cert_title: "Featured Certifications",
+                cert1_org: "Cisco Networking Academy (Oct 2024)",
+                cert3_name: "PC Maintenance and Assembly",
+                cert3_org: "Juventude Digital Program (May 2024)",
+                cert5_name: "IoT Solutions: From Sensor to ERP",
+                footer_text: "© Ana Laura Viana Geleilate 2026. Systems Analyst & Computer Engineer.",
+                chart_labels: [
+                    'Cloud (Azure / M365)',
+                    'Networking & Firewalls',
+                    'Servers (Win/Linux)',
+                    'Monitoring (Zabbix)',
+                    'Governance (Jira / ITIL)',
+                    'Support & Hardware'
+                ],
+                chart_dataset: "Proficiency Level"
+            }
+        };
+
+        // Inicialização do Gráfico de Competências
+        const ctx = document.getElementById('skillsChart').getContext('2d');
+        const skillsChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: translations.pt.chart_labels,
                 datasets: [{
-                    label: 'Nível de Proficiência',
+                    label: translations.pt.chart_dataset,
                     data: [90, 88, 85, 85, 92, 95],
                     backgroundColor: 'rgba(37, 99, 235, 0.15)',
                     borderColor: 'rgba(37, 99, 235, 1)',
@@ -336,6 +502,50 @@
                 }
             }
         });
+
+        // Função para alternar idioma
+        function setLanguage(lang) {
+            const t = translations[lang];
+            document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+            document.getElementById('page-title').textContent = t.page_title;
+
+            // Atualiza botões no topo
+            const btnPt = document.getElementById('btn-pt');
+            const btnEn = document.getElementById('btn-en');
+            if (lang === 'pt') {
+                btnPt.className = "px-2.5 py-1 rounded-md bg-white text-blue-600 shadow-sm transition cursor-pointer";
+                btnEn.className = "px-2.5 py-1 rounded-md text-slate-600 hover:text-slate-900 transition cursor-pointer";
+            } else {
+                btnEn.className = "px-2.5 py-1 rounded-md bg-white text-blue-600 shadow-sm transition cursor-pointer";
+                btnPt.className = "px-2.5 py-1 rounded-md text-slate-600 hover:text-slate-900 transition cursor-pointer";
+            }
+
+            // Atualiza todos os textos e listas HTML
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key]) {
+                    if (key.endsWith('_bullets')) {
+                        el.innerHTML = t[key];
+                    } else {
+                        el.textContent = t[key];
+                    }
+                }
+            });
+
+            // Atualiza rótulos do gráfico
+            skillsChart.data.labels = t.chart_labels;
+            skillsChart.data.datasets[0].label = t.chart_dataset;
+            skillsChart.update();
+
+            // Salva preferência no navegador
+            localStorage.setItem('portfolio_lang', lang);
+        }
+
+        // Carrega idioma salvo se houver
+        const savedLang = localStorage.getItem('portfolio_lang');
+        if (savedLang && (savedLang === 'pt' || savedLang === 'en')) {
+            setLanguage(savedLang);
+        }
     </script>
 </body>
 </html>
